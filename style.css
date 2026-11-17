@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@400;600;700&display=swap');
+
+:root {
+    --pink: rgb(203, 36, 156);
+    --purple: rgb(77, 7, 87);
+    --ink: rgb(48, 21, 78);
+    --radius: 20px;
+    --gap: 16px;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Grandstander', cursive, fantasy;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    background: linear-gradient(135deg, var(--pink), #fff 60%);
+    color: var(--ink);
+    padding: var(--gap);
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "side main"
+        "side down";
+    gap: var(--gap);
+    align-items: start;
+}
+
+a {
+    text-decoration: none;
+    color: var(--ink);
+}
+
+/* ---------- Боковое меню ---------- */
+.leftSide {
+    grid-area: side;
+    position: sticky;
+    top: var(--gap);
+    background: rgba(255, 255, 255, 0.55);
+    border: 3px solid var(--purple);
+    border-radius: var(--radius);
+    padding: 14px;
+    backdrop-filter: blur(6px);
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mainMoments {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.menuPoint,
+.backButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    border: 2px solid #fff;
+    border-radius: 999px;
+    background: linear-gradient(to right, var(--pink), #fff);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.backButton {
+    background: linear-gradient(to left, var(--pink), #fff);
+}
+
+.menuPoint:hover,
+.backButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(77, 7, 87, 0.25);
+    text-decoration: none;
+}
+
+/* ---------- Контент ---------- */
+.main {
+    grid-area: main;
+    background: rgba(255, 255, 255, 0.6);
+    border: 3px solid var(--purple);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+}
+
+.zagolovok {
+    font-size: 22px;
+    margin-bottom: 14px;
+}
+
+.mainText,
+.mainLoveText,
+.mainNewYearText {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* ---------- Галерея ---------- */
+.downSide {
+    grid-area: down;
+    background: rgba(255, 255, 255, 0.6);
+    border: 3px solid var(--purple);
+    border-radius: var(--radius);
+    padding: 14px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    align-items: center;
+    justify-items: center;
+}
+
+.photo,
+.photoVertikal,
+.photoNewYearObrez {
+    width: 100%;
+    max-width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border: 3px solid #fff;
+    border-radius: 12px;
+    display: block;
+}
+
+.photoVertikal {
+    height: 160px;
+    max-width: 110px;
+}
+
+.photoNewYearObrez {
+    height: 140px;
+}
+
+.photoText {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 16px;
+    padding: 6px;
+}
+
+/* ---------- Альбом ---------- */
+.albumMain {
+    grid-area: main / main / down / down;
+    background: rgba(255, 255, 255, 0.6);
+    border: 3px solid var(--purple);
+    border-radius: var(--radius);
+    padding: 14px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 12px;
+    align-content: start;
+}
+
+.albumMain img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    border: 3px solid #fff;
+    border-radius: 12px;
+    display: block;
+}
+
+.albumPhotoVertikal {
+    height: 180px !important;
+}
+
+
+
+/* ---------- Телефон ---------- */
+@media (width <= 700px) {
+    body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+        "side"
+        "main"
+        "down";
+    }
+
+    .leftSide {
+        position: relative;
+        margin-bottom: 15px;
+    }
+}
